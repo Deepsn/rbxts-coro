@@ -6,6 +6,7 @@ export = () => {
 	it("should run a test module", () => {
 		const coro = CreateCoro($getModuleTree("../modules/hello-world"));
 		const [, result] = coro.Spawn().await();
+
 		expect(result).to.equal("hello world");
 	});
 

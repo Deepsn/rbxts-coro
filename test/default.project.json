@@ -23,6 +23,15 @@
 			"server": {
 				"$path": "out/test/src"
 			}
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"client": {
+					"$path": "out/test/src"
+				}
+			}
 		}
 	}
 }
