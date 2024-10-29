@@ -1,5 +1,4 @@
 import { Clone } from "@rbxts/altmake";
-import { TIMEOUT } from "./constants/core";
 import { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "./constants/topics";
 import { BindToCustomMessage } from "./utils/bind-to-custom-message";
 
@@ -23,21 +22,17 @@ export class Coro {
 		actor.SetAttribute("id", id);
 		actor.Processor.Enabled = true;
 
-		const promise = new Promise((resolve, reject) => {
+		const promise = new Promise((resolve) => {
 			const connection = BindToCustomMessage(RECEIVE_MESSAGE_TOPIC + id, (result: unknown) => {
 				connection.Disconnect();
 				resolve(result);
-			});
-
-			task.delay(TIMEOUT, () => {
-				connection.Disconnect();
-				reject(undefined);
+				this.Return(actor);
 			});
 		});
 
 		task.defer(() => actor.SendMessage(SEND_MESSAGE_TOPIC + id, this.module, ...args));
 
-		return [promise, () => this.Return(actor)];
+		return promise;
 	}
 
 	public Return(actor: ProcessorActor) {
