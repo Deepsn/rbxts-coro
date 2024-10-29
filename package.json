@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/coro",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Coro is a library for managing Actors in Roblox",
 	"main": "out/init.lua",
 	"scripts": {
@@ -19,7 +19,10 @@
 	"author": "Deepsn",
 	"license": "ISC",
 	"types": "out/index.d.ts",
-	"files": ["out", "!**/*.tsbuildinfo"],
+	"files": [
+		"out",
+		"!**/*.tsbuildinfo"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
