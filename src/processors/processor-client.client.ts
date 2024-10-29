@@ -1,5 +1,5 @@
-import type { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "../constants/topics";
 import { ReplicatedStorage, RunService } from "@rbxts/services";
+import type { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "../constants/topics";
 
 // Hardcoded because of roblox-ts's limitation
 const receiveMessageTopic = "RECEIVE_MESSAGE" satisfies typeof RECEIVE_MESSAGE_TOPIC;
