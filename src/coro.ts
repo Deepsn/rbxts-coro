@@ -1,4 +1,4 @@
-import { Clone, Make } from "@rbxts/altmake";
+import { Clone } from "@rbxts/altmake";
 import { TIMEOUT } from "./constants/core";
 import { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "./constants/topics";
 import { BindToCustomMessage } from "./utils/bind-to-custom-message";
