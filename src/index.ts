@@ -17,5 +17,5 @@ export function CreateCoro(tree: Tree) {
 		Parent: processorParent,
 	});
 
-	return new Coro(actor, module);
+	return new Coro(actor as Actor & { Processor: BaseScript }, module);
 }
