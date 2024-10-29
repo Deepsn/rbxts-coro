@@ -1,12 +1,19 @@
-import { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "../constants/topics";
-import { SendCustomMessage } from "../utils/bind-to-custom-message";
+import type { RECEIVE_MESSAGE_TOPIC, SEND_MESSAGE_TOPIC } from "../constants/topics";
+import { ReplicatedStorage, RunService } from "@rbxts/services";
+
+// Hardcoded because of roblox-ts's limitation
+const receiveMessageTopic = "RECEIVE_MESSAGE" satisfies typeof RECEIVE_MESSAGE_TOPIC;
+const sendMessageTopic = "SEND_MESSAGE" satisfies typeof SEND_MESSAGE_TOPIC;
 
 const actor = script.GetActor();
 assert(actor, "Processor must be a child of an actor");
 
+const messengerKey = `CoroMessenger-${RunService.IsServer() ? "Server" : "Client"}`;
+const messenger = ReplicatedStorage.WaitForChild(messengerKey) as BindableEvent;
+
 const id = actor.GetAttribute("id");
 
-actor.BindToMessage(SEND_MESSAGE_TOPIC + id, (module: ModuleScript, ...args: unknown[]) => {
+actor.BindToMessage(sendMessageTopic + id, (module: ModuleScript, ...args: unknown[]) => {
 	const execute = require(module) as (...args: unknown[]) => unknown;
 
 	task.desynchronize();
@@ -15,5 +22,5 @@ actor.BindToMessage(SEND_MESSAGE_TOPIC + id, (module: ModuleScript, ...args: unk
 
 	task.synchronize();
 
-	SendCustomMessage(RECEIVE_MESSAGE_TOPIC + id, result);
+	messenger.Fire(receiveMessageTopic + id, result);
 });
