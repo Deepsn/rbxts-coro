@@ -1,7 +1,7 @@
 {
   "name": "@rbxts/coro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Coro is a library for managing Actors in Roblox",
   "main": "out/init.lua",
   "scripts": {
     "lint:check": "biome check .",
@@ -12,8 +12,11 @@
     "test:serve": "rojo serve test/default.project.json",
     "prepublishOnly": "bun run build"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deepsn/rbxts-coro.git"
+  },
+  "author": "Deepsn",
   "license": "ISC",
   "types": "out/index.d.ts",
   "files": [
