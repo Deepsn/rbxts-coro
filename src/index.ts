@@ -1,8 +1,8 @@
+import { Clone, Make } from "@rbxts/altmake";
 import { ServerScriptService, StarterPlayer } from "@rbxts/services";
 import { IS_SERVER } from "./constants/core";
 import { Coro } from "./coro";
-import { findByTree, type Tree } from "./utils/find-by-tree";
-import { Clone, Make } from "@rbxts/altmake";
+import { type Tree, findByTree } from "./utils/find-by-tree";
 
 const processorParent = IS_SERVER ? ServerScriptService : StarterPlayer.WaitForChild("StarterPlayerScripts");
 const processors = script.WaitForChild("processors") as Folder;

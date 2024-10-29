@@ -1,41 +1,38 @@
 {
-  "name": "@rbxts/coro",
-  "version": "1.0.0",
-  "description": "Coro is a library for managing Actors in Roblox",
-  "main": "out/init.lua",
-  "scripts": {
-    "lint:check": "biome check .",
-    "lint:fix": "biome check . --fix",
-    "build": "rbxtsc",
-    "watch": "rbxtsc -w",
-    "test:watch": "rbxtsc --type=game -p test -i test/include -w",
-    "test:serve": "rojo serve test/default.project.json",
-    "prepublishOnly": "bun run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Deepsn/rbxts-coro.git"
-  },
-  "author": "Deepsn",
-  "license": "ISC",
-  "types": "out/index.d.ts",
-  "files": [
-    "out",
-    "!**/*.tsbuildinfo"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@rbxts/compiler-types": "3.0.0-types.0",
-    "@rbxts/types": "^1.0.813",
-    "roblox-ts": "^3.0.0",
-    "@biomejs/biome": "^1.9.4",
-    "typescript": "^5.6.3",
-    "@rbxts/testez": "^0.4.2-ts.0"
-  },
-  "dependencies": {
-    "@rbxts/altmake": "^0.1.5",
-    "@rbxts/services": "^1.5.5"
-  }
+	"name": "@rbxts/coro",
+	"version": "1.0.0",
+	"description": "Coro is a library for managing Actors in Roblox",
+	"main": "out/init.lua",
+	"scripts": {
+		"lint:check": "biome check .",
+		"lint:fix": "biome check . --fix",
+		"build": "rbxtsc",
+		"watch": "rbxtsc -w",
+		"test:watch": "rbxtsc --type=game -p test -i test/include -w",
+		"test:serve": "rojo serve test/default.project.json",
+		"prepublishOnly": "bun run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Deepsn/rbxts-coro.git"
+	},
+	"author": "Deepsn",
+	"license": "ISC",
+	"types": "out/index.d.ts",
+	"files": ["out", "!**/*.tsbuildinfo"],
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/types": "^1.0.813",
+		"roblox-ts": "^3.0.0",
+		"@biomejs/biome": "^1.9.4",
+		"typescript": "^5.6.3",
+		"@rbxts/testez": "^0.4.2-ts.0"
+	},
+	"dependencies": {
+		"@rbxts/altmake": "^0.1.5",
+		"@rbxts/services": "^1.5.5"
+	}
 }
